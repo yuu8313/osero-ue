@@ -1,6 +1,6 @@
 const AI_CONFIG = {
     // AIの強さを決めるやつ (1-5) 数字が大きいほど強い
-    DIFFICULTY: 3,
+    DIFFICULTY: 5,
 
     /** 
      * どのアルゴリズムを使うか選ぶ
