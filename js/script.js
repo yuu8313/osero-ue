@@ -164,6 +164,7 @@ class ReversiGame {
         this.renderBoard();
         this.updateScore();
         
+        // 次のプレイヤーを設定
         const nextPlayer = this.currentPlayer === 'black' ? 'white' : 'black';
         const validMoves = this.getValidMoves(nextPlayer);
         
@@ -175,11 +176,24 @@ class ReversiGame {
                 this.endGame();
                 return;
             }
+            
             // パスの処理
-            this.showNotification(`${nextPlayer === 'black' ? '黒' : '白'}はパスです`);
+            const passPlayer = nextPlayer === 'black' ? '黒' : '白';
+            this.showNotification(`${passPlayer}はパスです`);
+            
+            // 現在のプレイヤーのターンを継続
             setTimeout(() => {
-                // 同じプレイヤーのターンを継続
-                this.showValidMoves();
+                if (nextPlayer === 'white') {
+                    // AIがパスするとplayerに
+                    this.currentPlayer = 'black';
+                    document.getElementById('turn-display').textContent = '黒のターン';
+                    this.showValidMoves();
+                } else {
+                    // playerがパスするとAIに
+                    this.currentPlayer = 'white';
+                    document.getElementById('turn-display').textContent = '白のターン';
+                    setTimeout(() => this.computerMove(), 1000);
+                }
             }, 2000);
             return;
         }
