@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8313オセロ</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+    <div class="container glass">
+        <h1>VS PCオセロ</h1>
+        
+        <div class="game-info">
+            <div class="score">
+                <div class="black-score">
+                    <i class="fas fa-circle"></i>
+                    <span id="black-count">2</span>
+                </div>
+                <div class="white-score">
+                    <i class="far fa-circle"></i>
+                    <span id="white-count">2</span>
+                </div>
+            </div>
+            <div class="turn-indicator" id="turn-display">黒のターン</div>
+        </div>
+
+        <div class="board" id="board"></div>
+
+        <div class="game-result glass" id="game-result">
+            <h2 id="result-message"></h2>
+            <button id="restart-button" class="glass-button">
+                <i class="fas fa-redo"></i> もう一度プレイ
+            </button>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="js/script.js"></script>
+    <script src="ai/ai1.js"></script>
+</body>
+</html>
